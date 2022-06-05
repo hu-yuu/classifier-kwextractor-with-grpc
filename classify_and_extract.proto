@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package avukatjet;
+
+service ExtractorAndClassifier {
+    rpc Extract(Request) returns (ExtractResponse) {}
+    rpc Classify(Request) returns (ClassifyResponse) {}
+}
+
+message Request{
+    string text = 1;
+}
+
+message ExtractResponse{
+    repeated string gramOneKeywords = 1;
+    repeated string gramTwoKeywords = 2;
+}
+
+message ClassifyResponse{
+    string label = 1;
+}
